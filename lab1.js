@@ -68,7 +68,7 @@ function assert(expression, failureMessage) {
 */
 
 assert(1 === 1);
-assert(1 === 2, "this is an assertion failure example. 1===2");
+assert(1 === 2, 'this is an assertion failure example: 1 === 2');
 
 /*
  TODO: 8 points
@@ -76,6 +76,10 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
+var numOfGiraffes = 10;
+var numOfLemurs = 1;
+assert(numOfGiraffes !== numOfLemurs, "the first value should be equal to the second value");
+assert(27 === 'giraffe', "The number 27 is not equal to the string 'giraffe.'  27 === 'giraffe'.");
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
@@ -93,9 +97,30 @@ var sentence1 = "More food please.",
  HINT: the "split" method on String will be useful.
 */
 
+
+sentence1 = sentence1.split(' ');
+var i;
+for (i = 0; i < sentence1.length; i++) {
+  sentence1[i] = 'chirp';
+}
+sentence1 = sentence1.join(' ') + '.';
+
+
+sentence2 = sentence2.split(' ');
+i = 0;
+while (i < sentence2.length) {
+    sentence2[i] = 'chirp';
+    i += 1;
+}
+sentence2 = sentence2.join(' ') + '.';
+
+
+
 assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
 assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
   "sentence 2 should have 9 chirps");
+
+
 
 /* ----------------- Favorite Animals ----------------------------------------
  The zoo is closing in 20 minutes. You still haven't seen your four favorite
@@ -107,8 +132,11 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
 var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
     nextAnimal;
 
+
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
+
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 
 assert(nextAnimal, "assign something to nextAnimal");
 
@@ -134,6 +162,21 @@ var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
  pondering protein supplements (the first day the average dips below 4
  meals)
 */
+
+var day = 0;
+var sum = 0;
+var averageMealsPerDay;
+
+for (i = 0; i < mealsPerDay.length; i++) {
+  day += 1;
+  sum += mealsPerDay[i];
+  averageMealsPerDay = sum / day;
+  console.log('Day #' + day + ': the average number of meals per day since the caretaker started is ' + averageMealsPerDay);
+  if ((averageMealsPerDay < 4) && (!tooHungryDay)) {
+    tooHungryDay = day;
+    console.log('The lion began to assess the tastiness of the caretaker on Day #' + tooHungryDay);
+  }
+}
 
 assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
 assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
