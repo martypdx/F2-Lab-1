@@ -26,6 +26,8 @@
  We've implemented a function that will help you sanity-check your code.
 */
 
+
+
 function assert(expression, failureMessage) {
   if (!expression) {
     console.log("assertion failure: ", failureMessage);
@@ -51,7 +53,11 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
+var monkey = 5,
+    giraffe = 2;
 
+  assert(monkey === monkey);
+  assert(monkey === giraffe, "The assertion failed because monkey equals 5 while giraffe equals 2");
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
@@ -60,6 +66,19 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
 var sentence1 = "More food please.",
     sentence2 = "Come over here so you can scratch my belly.";
 
+var noise1 = sentence1.split(" "),
+    noise2 = sentence2.split(" ");
+
+    for(count = 0; count < noise1.length; count++){
+        noise1[ count] = "chirp";
+    }
+    sentence1 = noise1.join(" ")+".";
+    var i = 0;
+    do {
+        noise2[i] = "chirp";
+          i++;
+       }while( i < noise2.length);
+    sentence2 = noise2.join(" ")+".";
 /*
  TODO: 20 points
  Your goal is to replace the words in the above sentences with "chirp". The
@@ -81,6 +100,8 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
 
 var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
     nextAnimal;
+    nextAnimal = favoriteAnimals[Math.floor(Math.random()*4)]; 
+    console.log(nextAnimal);
 
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
@@ -99,9 +120,14 @@ assert(nextAnimal, "assign something to nextAnimal");
 
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
-    tooHungryDay;
-
-/*
+    mealsSofar = 0,
+    tooHungryDay = 0;
+  do{ 
+    mealsSofar += mealsPerDay[tooHungryDay];
+    tooHungryDay +=1;
+    }while((mealsSofar/tooHungryDay)>=4 && tooHungryDay < mealsPerDay.length);
+    console.log(tooHungryDay);
+    /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
  number of meals/day the lion got since the new caretaker started.
