@@ -77,13 +77,30 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  it failed.
 */
 
+assert("elephant" === "elephant");
+assert("hippo" === "tiger", "this assertion faild because tiger is not the same as hippo");
+
+
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
 */
-
 var sentence1 = "More food please.",
     sentence2 = "Come over here so you can scratch my belly.";
+
+function convert(string){
+  var Array1 = string.split(" ");
+  var output= "";
+    for (var i=1; i < Array1.length; i++) {
+      output += "chirp ";
+    }
+output += "chirp.";
+return output;
+}
+
+sentence1 = convert(sentence1);
+sentence2 = convert(sentence2);
+
 
 /*
  TODO: 20 points
@@ -107,6 +124,25 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
 var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
     nextAnimal;
 
+whereTo();
+
+function whereTo(){
+  guess = (Math.random()*10+1);
+    if (guess <= 2.5) {
+     nextAnimal =favoriteAnimals[0];
+     }
+    else if (2.5 < guess && guess <=5) {
+      nextAnimal=favoriteAnimals[1];
+    }
+    else if (5 < guess && guess <=7.5) {
+      nextAnimal=favoriteAnimals[2];
+    }
+    else {
+      nextAnimal=favoriteAnimals[3];
+    }
+    // console.log(guess);
+    // console.log(nextAnimal);
+}
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
@@ -125,6 +161,21 @@ assert(nextAnimal, "assign something to nextAnimal");
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
     tooHungryDay;
+
+function hungryLion(){
+  var addMeals=0;
+  for (i=0; i<mealsPerDay.length; i++) {
+    addMeals += mealsPerDay[i];
+    tooHungryDay = addMeals/[i+1];
+    console.log("day "+(i+1) +"    meals/day "+addMeals+"/"+(i+1)+"="+tooHungryDay);
+
+      if (tooHungryDay<4){
+        console.log("****Hungry Lion on day "+(i+1)+"*****");
+      }
+  }
+}
+
+hungryLion();
 
 /*
  TODO: 20 points
