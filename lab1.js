@@ -77,6 +77,11 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  it failed.
 */
 
+var zebras=10;
+assert((zebras >= 6) && (zebras <= 12), "The number of zebras in the exhibit is INCORRECT!");
+var zebras=15;
+assert((zebras >= 6) && (zebras <= 12), "The number of zebras in the exhibit is INCORRECT!");
+
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
@@ -92,6 +97,27 @@ var sentence1 = "More food please.",
  **two** different kinds of loops to implement this.
  HINT: the "split" method on String will be useful.
 */
+//Using a for loop for sentence1
+var arrayOfStrings = sentence1.split(" ");
+sentence1 = "";
+for (var i=0; i < arrayOfStrings.length; i++) {
+  if (i !== arrayOfStrings.length-1)
+    sentence1 += "chirp ";
+  else
+    sentence1 += "chirp.";
+}
+
+//Using a while loop for sentence2
+var index=0;
+var arrayOfStrings = sentence2.split(" ");
+sentence2 = "";
+while (index < arrayOfStrings.length) {
+  if (index !== arrayOfStrings.length-1)
+    sentence2 += "chirp ";
+  else
+    sentence2 += "chirp.";
+  index++;
+}
 
 assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
 assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
@@ -109,6 +135,8 @@ var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
 
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
+
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 
 assert(nextAnimal, "assign something to nextAnimal");
 
@@ -135,6 +163,17 @@ var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
  meals)
 */
 
+var mealTotal=0, tooHungryDay=0;
+for (var i=0; i < mealsPerDay.length; i++) {
+  var day = i+1;
+  mealTotal += mealsPerDay[i];
+  var average = mealTotal/day;
+  console.log("Day " + day + " = " + average);
+  if (average < 4) {
+    tooHungryDay = day;
+    break;
+  }
+}
 assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
 assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
 
