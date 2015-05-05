@@ -92,10 +92,11 @@ var sentence1 = "More food please.",
 function convert(string) {
   var Array1 = string.split(" ");
   var output = "";
-  for (var i = 1; i < Array1.length; i++) {
+  for (var i = 0; i < Array1.length; i++) {
     output += "chirp ";
   }
-  output += "chirp.";
+  output = output.trim();
+  output += ".";
   return output;
 }
 
@@ -126,7 +127,7 @@ var favoriteAnimals = ["elephant", "penguin", "eagle", "camel"],
 whereTo();
 
 function whereTo() {
-  guess = Math.random() * 10 + 1;
+  var guess = Math.random() * 10 + 1;
   if (guess <= 2.5) {
     nextAnimal = favoriteAnimals[0];
   } else if (2.5 < guess && guess <= 5) {
@@ -160,13 +161,13 @@ var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1],
 
 function hungryLion() {
   var addMeals = 0;
-  for (i = 0; i < mealsPerDay.length; i++) {
+  for (var i = 0; i < mealsPerDay.length; i++) {
     addMeals += mealsPerDay[i];
     tooHungryDay = addMeals / [i + 1];
     console.log("day " + (i + 1) + "    meals/day " + addMeals + "/" + (i + 1) + "=" + tooHungryDay);
 
     if (tooHungryDay < 4) {
-      console.log("****Hungry Lion on day " + (i + 1) + "*****");
+      console.log("****Hungry Lion on day " + (i + 1) + " *****");
     }
   }
 }
