@@ -165,15 +165,6 @@ for (i = 0; i < mealsPerDay.length; i++) {
  tooHungryDay should receive the number of days before the lion started
  pondering protein supplements (the first day the average dips below 4
  meals)
-
- day += 1;
-  average = mealsPerDay[i];
-  average = average / day;
-  console.log(average + ' is average')
-  if(average < 4){
-    tooHungryDay = day;
-    console.log('On day ' + tooHungryDay + ' the lion started geting too hungry for safety!');
-  };
 */
 
 assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
