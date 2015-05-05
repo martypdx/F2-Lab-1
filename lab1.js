@@ -1,4 +1,3 @@
-
 /* LAB 1: A Trip to Woodland Park Zoo
 
  Welcome to Lab 1 =)
@@ -27,33 +26,18 @@
  We've implemented a function that will help you sanity-check your code.
 */
 
-/*
+"use strict";
 
-var array = [ 1, 2, 3 ];
-var map = array.map(each => each * 10);
+var array = [1, 2, 3];
+var map = array.map(function (each) {
+  return each * 10;
+});
+
 console.log(map);
-
-var foo = 'qux';
-
-if(true){
-  let foo = 'bar';
-  console.log(foo);
-}
-
-function multiple(x, y = x){
-  return x * y;
-}
-
-
-console.log(multiple(3));
-
-var a = [];
-var first = Array.isArray(a) ? a[0] : undefined;
-*/
 
 function assert(expression, failureMessage) {
   if (!expression) {
-    console.warn("assertion failure: ", failureMessage);
+    console.log("assertion failure: ", failureMessage);
   }
 }
 
@@ -76,6 +60,11 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
+var rhinos = 1,
+tigers = 5;
+
+assert(rhinos === 'rhinos', 'This will be false since the value of rhinos is NOT equal to the string "rhinos"');
+assert(tigers === 5, 'This is a true statement because the value of tigers is equal to 5');
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
@@ -84,6 +73,28 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
 
 var sentence1 = "More food please.",
     sentence2 = "Come over here so you can scratch my belly.";
+
+//for loop
+var firstSentence = sentence1.split(' ');
+
+for(var i = 0; i < firstSentence.length; i++){
+  firstSentence[i] = 'chirp';
+};
+
+sentence1 = firstSentence.join(' ') + '.';
+
+
+//while loop
+var secondSentence = sentence2.split(' ');
+
+var i = 0;
+
+while(i < secondSentence.length){
+  secondSentence[i] = 'chirp';
+  i += 1;
+};
+sentence2 = secondSentence.join(' ') + '.';
+
 
 /*
  TODO: 20 points
@@ -94,8 +105,7 @@ var sentence1 = "More food please.",
 */
 
 assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
-assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
-  "sentence 2 should have 9 chirps");
+assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.", "sentence 2 should have 9 chirps");
 
 /* ----------------- Favorite Animals ----------------------------------------
  The zoo is closing in 20 minutes. You still haven't seen your four favorite
@@ -104,8 +114,8 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
  Hint: read the whole Math.random description on that page and try the examples
 */
 
-var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
-    nextAnimal;
+var favoriteAnimals = ["elephant", "penguin", "eagle", "camel"],
+    nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
@@ -123,8 +133,30 @@ assert(nextAnimal, "assign something to nextAnimal");
 */
 
 // number of times the new caretaker fed the lion. one array entry per day
-var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
-    tooHungryDay;
+
+var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
+var tooHungryDay;
+var day = 0;
+var currentTotalAvg = 0;
+var average;
+
+
+for (i = 0; i < mealsPerDay.length; i++) {
+
+  day += 1;
+  //console.log(day + ' day');
+  currentTotalAvg += mealsPerDay[i];
+  //console.log(currentTotalAvg + ' currentTotalAvg');
+  average = currentTotalAvg / day;
+  //console.log(average + " average");
+  if (average < 4) {
+    tooHungryDay = day;
+    console.log('The current average (' + average + ') of feed on day #' + tooHungryDay + ' is critically low, exercise extreme caution when feeding the lion!');
+  };
+};
+
+
+
 
 /*
  TODO: 20 points
@@ -157,4 +189,4 @@ or, if you installed grunt globally, you can just type
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
 */
-
+//# sourceMappingURL=lab1f.js.map
