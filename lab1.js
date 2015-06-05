@@ -128,8 +128,7 @@ assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
  directory): npm install
 
  run the tools with:
-  ./node_modules/.bin/grunt jshint
-  ./node_modules/.bin/grunt jscs
+  $ npm run grunt
 
 or, if you installed grunt globally, you can just type
   $ grunt

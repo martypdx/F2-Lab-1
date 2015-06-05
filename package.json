@@ -1,6 +1,9 @@
 {
   "name": "lab1-adv-track",
   "version": "0.0.0",
+  "scripts": {
+    "grunt": "./node_modules/.bin/grunt"
+  },
   "description": "Codefellows Foundations II: Javascript, Lab 1, Advanced Track",
   "dependencies": {
     "grunt-cli": "^0.1.13",
