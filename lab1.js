@@ -27,30 +27,6 @@
  We've implemented a function that will help you sanity-check your code.
 */
 
-/*
-
-var array = [ 1, 2, 3 ];
-var map = array.map(each => each * 10);
-console.log(map);
-
-var foo = 'qux';
-
-if(true){
-  let foo = 'bar';
-  console.log(foo);
-}
-
-function multiple(x, y = x){
-  return x * y;
-}
-
-
-console.log(multiple(3));
-
-var a = [];
-var first = Array.isArray(a) ? a[0] : undefined;
-*/
-
 function assert(expression, failureMessage) {
   if (!expression) {
     console.warn("assertion failure: ", failureMessage);
@@ -87,20 +63,25 @@ var sentence1 = "More food please.",
 
 /*
  TODO: 20 points
- Your goal is to replace the words in the above sentences with "chirp". The
- assertions at the end of this section should pass when you're done.  Use
- **two** different kinds of loops to implement this.
+ Your goal is to replace all words in the above sentences with "chirp",
+ except replace food with "yum" and "scratch" with "purr". The
+ assertions at the end of this section should pass when you're done.
+
+ Use **two** different kinds of loops to implement this.
  HINT: the "split" method on String will be useful.
 */
 
-assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
-assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
-  "sentence 2 should have 9 chirps");
+assert(sentence1 === "chirp yum chirp.", "sentence 1 should have 2 chirps and a yum");
+assert(sentence2 === "chirp chirp chirp chirp chirp chirp purr chirp chirp.",
+  "sentence 2 should have 8 chirps and a purr");
 
 /* ----------------- Favorite Animals ----------------------------------------
  The zoo is closing in 20 minutes. You still haven't seen your four favorite
  animals. You only have time for one. Use Math.random() to pick which animal
- to see next. http://www.w3schools.com/jsref/jsref_random.asp
+ to see next.
+ Resources:
+     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+     http://www.w3schools.com/jsref/jsref_random.asp
  Hint: read the whole Math.random description on that page and try the examples
 */
 
@@ -157,4 +138,3 @@ or, if you installed grunt globally, you can just type
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
 */
-
