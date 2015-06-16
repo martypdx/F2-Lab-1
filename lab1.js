@@ -31,6 +31,9 @@ function assert(expression, failureMessage) {
   if (!expression) {
     console.warn("assertion failure: ", failureMessage);
   }
+  else {
+    console.log("pass");
+  }
 }
 
 /*
@@ -52,6 +55,10 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
+var monkey = 2;
+var gorilla = 3;
+assert(monkey === monkey);
+assert(monkey === gorilla, "not all monkeys are gorillas!");
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
@@ -61,11 +68,44 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
 var sentence1 = "More food please.",
     sentence2 = "Come over here so you can scratch my belly.";
 
+var i = 0;
+
+var array2 = sentence2.split(' ');
+
+for (var i = 0; i < array2.length; i++) {
+  // then test for blah
+  if (array2[i] === "scratch")
+     // if true do this
+    {array2[i]= "purr";}
+     // otherwise do this
+  else {array2[i]= "chirp";}
+ // do this last
+  sentence2 = array2.join(" ") + ".";
+}
+
+var array1 = sentence1.split(' ');
+
+for (var i = 0; i < array1.length; i++) {
+  // then test for blah
+  if (array1[i] === "food")
+     // if true do this
+    {array1[i]= "yum";}
+     // otherwise do this
+  else {array1[i]= "chirp";}
+ // do this last
+  sentence1 = array1.join(" ") + ".";
+}
+
+console.log(sentence1);
+console.log(sentence2);
+
+
 /*
  TODO: 20 points
  Your goal is to replace all words in the above sentences with "chirp",
  except replace food with "yum" and "scratch" with "purr". The
  assertions at the end of this section should pass when you're done.
+
 
  Use **two** different kinds of loops to implement this.
  HINT: the "split" method on String will be useful.
@@ -88,6 +128,10 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp purr chirp chirp.",
 var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
     nextAnimal;
 
+var i = Math.floor((Math.random() * 3) + 1);
+nextAnimal = favoriteAnimals[i];
+
+
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
@@ -107,6 +151,28 @@ assert(nextAnimal, "assign something to nextAnimal");
 var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
     tooHungryDay;
 
+var days = mealsPerDay.length;
+i = 0;
+var day;
+var runningAvg = 0;
+var runningTotal = 0;
+
+while(i < days){
+  day = i + 1;
+  runningTotal += mealsPerDay[i];
+  runningAvg = runningTotal/day;
+  console.log(day, runningAvg);
+  if (runningAvg < 4){
+    tooHungryDay = day;
+    break;
+  }
+
+  i++;
+}
+
+console.log('too hungry day', tooHungryDay);
+
+
 /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
@@ -118,6 +184,7 @@ var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
 
 assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
 assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
+
 
 /* ----------------- Code Style ----------------------------------------
  TODO: 10 points
