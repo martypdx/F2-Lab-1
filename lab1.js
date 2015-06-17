@@ -90,12 +90,12 @@ for (var i = 0; i < res1.length; i++ ){
 var result2 = [];
 var j = 0;
 while (j < res2.length){
-  j++;
   if (res2[j] === 'scratch'){
     result2.push('purr');
   } else {
     result2.push('chirp');
   }
+  j++;
 }
 
 var sentence1 = result1.join(" ") + (".");
@@ -153,27 +153,6 @@ var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
  meals)
 */
 
-assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
-assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
-
-/* ----------------- Code Style ----------------------------------------
- TODO: 10 points
- Now, we're going to use two tools: jshint and jscs, to check our code for
- best-practices and style consistency.
-
- If you haven't already, run this command in the terminal (inside of this
- directory): npm install
-
- run the tools with:
-  $ npm run grunt
-
-or, if you installed grunt globally, you can just type
-  $ grunt
-   and it will run both.
-
- Error and warning descriptions will be printed in the terminal.
- To get full points, correct all of the errors/warnings.
-*/
 console.log('at the zoo');
 
 var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ];
@@ -198,3 +177,25 @@ while( i < days ) {
   i++;
 }
 console.log('too hungry day', tooHungryDay);
+
+assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
+assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
+
+/* ----------------- Code Style ----------------------------------------
+ TODO: 10 points
+ Now, we're going to use two tools: jshint and jscs, to check our code for
+ best-practices and style consistency.
+
+ If you haven't already, run this command in the terminal (inside of this
+ directory): npm install
+
+ run the tools with:
+  $ npm run grunt
+
+or, if you installed grunt globally, you can just type
+  $ grunt
+   and it will run both.
+
+ Error and warning descriptions will be printed in the terminal.
+ To get full points, correct all of the errors/warnings.
+*/
