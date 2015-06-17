@@ -53,6 +53,9 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  it failed.
 */
 
+assert('lion' === 'lion');
+assert('lion' === 'bear', "this is an assertion failure for the assignment. lion===bear");
+
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
@@ -70,6 +73,35 @@ var sentence1 = "More food please.",
  Use **two** different kinds of loops to implement this.
  HINT: the "split" method on String will be useful.
 */
+var str1 = "More food please.";
+var str2 = "Come over here so you can scratch my belly.";
+var res1 = str1.split(" ");
+var res2 = str2.split(" ");
+
+var result1 = [];
+for (var i = 0; i < res1.length; i++ ){
+  if (res1[i] === 'food'){
+    result1.push('yum');
+  } else {
+    result1.push('chirp');
+  }
+}
+
+var result2 = [];
+var j = 0;
+while (j < res2.length){
+  j++;
+  if (res2[j] === 'scratch'){
+    result2.push('purr');
+  } else {
+    result2.push('chirp');
+  }
+}
+
+var sentence1 = result1.join(" ") + (".");
+var sentence2 = result2.join(" ") + (".");
+console.log(sentence1);
+console.log(sentence2);
 
 assert(sentence1 === "chirp yum chirp.", "sentence 1 should have 2 chirps and a yum");
 assert(sentence2 === "chirp chirp chirp chirp chirp chirp purr chirp chirp.",
@@ -91,6 +123,11 @@ var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
+var randomIndex = getRandomInt(0, favoriteAnimals.length -1);
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+nextAnimal = favoriteAnimals[randomIndex];
 assert(nextAnimal, "assign something to nextAnimal");
 
 /* ----------------- Hungry Lion ----------------------------------------
@@ -137,3 +174,27 @@ or, if you installed grunt globally, you can just type
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
 */
+console.log('at the zoo');
+
+var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ];
+var days = mealsPerDay.length;
+var tooHungryDay;
+var i = 0;
+var runningTotal = 0;
+var runningAvg = 0;
+var day = 0;
+
+while( i < days ) {
+  day = i + 1;
+  runningTotal+=mealsPerDay[i];
+  runningAvg = runningTotal/day;
+  console.log(day, runningAvg);
+
+  if ( runningAvg < 4 ){
+    tooHungryDay = day;
+    break;
+  }
+
+  i++;
+}
+console.log('too hungry day', tooHungryDay);
