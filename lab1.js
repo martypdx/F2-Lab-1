@@ -1,4 +1,5 @@
-
+//https://github.com/martypdx/F2-Lab-1/pull/9
+//send this to marty through terminal when ready for turn in.
 /* LAB 1: A Trip to Woodland Park Zoo
 
  Welcome to Lab 1 =)
@@ -60,13 +61,33 @@ assert('Pirahna' === 'Bat', "This assertion fails because Pirahna === Bat is fal
  research).  We're going to translate two sentences into meerkat speech.
 */
 
+
+
 var sentence1 = "More food please.",
-    sentence2 = "Come over here so you can scratch my belly.";
+   sentence2 = "Come over here so you can scratch my belly.";
+
+var i = 0;
+
+var array1 = sentence1.split(' ');
+
+for (var i = 0; i < array1.length; i++) {
+ if (array1[i] === "food")
+   {array1[i] = "yum";}
+ else {array1[i] = "chirp";}
+ sentence1 = array1.join(" ") + ".";
+}
+
+var array2 = sentence2.split(' ');
+
+for (var i = 0; i < array2.length; i++) {
+ if (array2[i] === "scratch")
+   {array2[i] = "purr";}
+ else {array2[i] = "chirp";}
+ sentence2 = array2.join(" ") + ".";
+}
 
     
-while(){
-  
-}
+
 /*
  TODO: 20 points
  Your goal is to replace all words in the above sentences with "chirp",
