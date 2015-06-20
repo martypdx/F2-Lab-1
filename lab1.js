@@ -1,4 +1,5 @@
-
+//https://github.com/martypdx/F2-Lab-1/pull/9
+//send this to marty through terminal when ready for turn in.
 /* LAB 1: A Trip to Woodland Park Zoo
 
  Welcome to Lab 1 =)
@@ -52,14 +53,40 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
+assert('Aligator' === 'Aligator');
+assert('Pirahna' === 'Bat', "This assertion fails because Pirahna === Bat is false.");
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
 */
 
+
+
 var sentence1 = "More food please.",
-    sentence2 = "Come over here so you can scratch my belly.";
+   sentence2 = "Come over here so you can scratch my belly.";
+
+var i = 0;
+
+var array1 = sentence1.split(' ');
+
+for (var i = 0; i < array1.length; i++) {
+ if (array1[i] === "food")
+   {array1[i] = "yum";}
+ else {array1[i] = "chirp";}
+ sentence1 = array1.join(" ") + ".";
+}
+
+var array2 = sentence2.split(' ');
+
+for (var i = 0; i < array2.length; i++) {
+ if (array2[i] === "scratch")
+   {array2[i] = "purr";}
+ else {array2[i] = "chirp";}
+ sentence2 = array2.join(" ") + ".";
+}
+
+    
 
 /*
  TODO: 20 points
@@ -87,12 +114,16 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp purr chirp chirp.",
 
 var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
     nextAnimal;
+var randomIndex = getRandomInt(0, favoriteAnimals.length -1)
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+nextAnimal = favoriteAnimals[randomIndex];
 
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 assert(nextAnimal, "assign something to nextAnimal");
-
 /* ----------------- Hungry Lion ----------------------------------------
  As long as the lion is well-fed, he doesn't take too much heed of the
  humans that pass through. Unfortunately, the new caretaker is a little
@@ -104,11 +135,36 @@ assert(nextAnimal, "assign something to nextAnimal");
 */
 
 // number of times the new caretaker fed the lion. one array entry per day
-var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
-    tooHungryDay;
+
+console.log('at the zoo');
+
+var mealsPerDay = [5, 4, 3, 6, 4, 2, 3, 4, 5, 1]
+var tooHungryDay;
+var days = mealsPerDay.length;
+var i = 0;
+var day = 0;
+var runningAvg = 0;
+var runningTotal = 0;
+while(i < days){
+  day = i + 1;
+  runningTotal += mealsPerDay[i];
+  runningAvg = runningTotal/day;
+  console.log(day, runningAvg);
+  if( runningAvg < 4 ){
+    tooHungryDay = day;
+    break;
+  }
+
+  i++;
+}
+console.log('too hungry day', tooHungryDay);
 
 /*
- TODO: 20 points
+
+ The lion needs 4 meals per day on average to stay happy. You're going to
+ figure out how many days it took before the lion decided to supplement his
+ diet with the caretaker.
+ 
  Cycle through the days in mealsPerDay. At each day, print out the average
  number of meals/day the lion got since the new caretaker started.
  tooHungryDay should receive the number of days before the lion started
